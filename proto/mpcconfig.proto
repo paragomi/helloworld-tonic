@@ -1,0 +1,15 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+package mpcconfig;
+
+service Configuration {
+    rpc SetParameters (MpcParameters) returns (MpcParameters);
+    rpc GetParameters (google.protobuf.Empty) returns (MpcParameters);
+}
+
+message MpcParameters {
+  int32 number_of_party = 1;
+  int32 signing_count = 2;
+  int32 resigning_count = 3;
+}
